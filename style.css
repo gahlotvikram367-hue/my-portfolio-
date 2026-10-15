@@ -1,0 +1,279 @@
+:root {
+  --paper: #f3f6f2;
+  --ink: #17243a;
+  --pencil: #5d6b80;
+  --grid: #d9e0d9;
+  --pen: #2349e0;
+  --highlight: #ffe45c;
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --text: "Newsreader", Georgia, "Times New Roman", serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 400 1.25rem/1.6 var(--text);
+  background-color: var(--paper);
+  /* graph paper */
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+a {
+  color: var(--pen);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  background: var(--highlight);
+  color: var(--ink);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--pen);
+  outline-offset: 3px;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.5rem 1rem;
+}
+
+.skip:focus {
+  top: 1rem;
+}
+
+.top,
+main,
+footer {
+  width: min(100% - 2.5rem, 46rem);
+  margin-inline: auto;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1.5rem;
+  font-family: var(--display);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  padding: 0.1rem 0.5rem;
+}
+
+.top nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.top nav a {
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.top nav a:hover {
+  background: var(--highlight);
+}
+
+/* hero */
+.hero {
+  padding-block: clamp(3rem, 12vw, 7rem) 3rem;
+}
+
+.hello {
+  margin: 0;
+  color: var(--pencil);
+  font-style: italic;
+}
+
+h1 {
+  margin: 0.25rem 0 1.25rem;
+  font: 800 clamp(3.25rem, 14vw, 6.5rem)/1 var(--display);
+  letter-spacing: -0.03em;
+}
+
+.mark {
+  background: linear-gradient(var(--highlight), var(--highlight)) no-repeat 0 88% / 0% 0.38em;
+  animation: sweep 0.9s 0.3s ease-out forwards;
+}
+
+@keyframes sweep {
+  to {
+    background-size: 100% 0.38em;
+  }
+}
+
+.lead {
+  max-width: 34rem;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  margin: 0 0 1.5rem;
+}
+
+.note {
+  display: inline-block;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  border-left: 4px solid var(--pen);
+  font-size: 1.05rem;
+  color: var(--pencil);
+}
+
+/* sections */
+.block {
+  padding-block: 2.5rem;
+  border-top: 2px solid var(--ink);
+}
+
+h2 {
+  margin: 0 0 1.5rem;
+  font: 800 2rem/1.1 var(--display);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  margin: 0 0 0.25rem;
+  font: 500 1.4rem/1.2 var(--display);
+}
+
+.block p {
+  max-width: 38rem;
+}
+
+/* projects: the left border shows status (solid = live, dashed = in progress) */
+.projects {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.85);
+  border-left: 5px solid var(--pen);
+}
+
+.project.building {
+  border-left-style: dashed;
+}
+
+.project p {
+  margin: 0 0 0.5rem;
+}
+
+.project h3 a {
+  text-decoration: none;
+}
+
+.project h3 a:hover {
+  text-decoration: underline;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--display);
+  font-size: 0.95rem;
+}
+
+.status {
+  font-weight: 800;
+}
+
+.year {
+  color: var(--pencil);
+}
+
+.stack {
+  color: var(--pencil);
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* skills */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.skills li {
+  padding: 0.25rem 0.9rem;
+  background: #fff;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  font: 500 1rem var(--display);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  font-size: 1.2rem;
+}
+
+footer {
+  padding-block: 2.5rem 3rem;
+  color: var(--pencil);
+  font-size: 1rem;
+}
+
+@media (max-width: 560px) {
+  .project {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .meta {
+    flex-direction: row;
+    gap: 0.75rem;
+  }
+
+  .top nav {
+    gap: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .mark {
+    animation: none;
+    background-size: 100% 0.38em;
+  }
+}
